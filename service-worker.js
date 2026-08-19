@@ -1,4 +1,4 @@
-const CACHE_NAME = 'gest-labo-v1.2';
+const CACHE_NAME = 'GestLab-v1.2';
 const ASSETS = [
     './',
     './index.html',
