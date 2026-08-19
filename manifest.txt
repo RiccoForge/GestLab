@@ -1,6 +1,6 @@
 {
-  "name": "GESTMABO CQ",
-  "short_name": "GEST-LABO",
+  "name": "GestLab",
+  "short_name": "GestLab",
   "description": "Système de Gestion de Laboratoire et Étiquetage",
   "start_url": "./index.html",
   "display": "standalone",
