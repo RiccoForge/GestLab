@@ -2558,7 +2558,7 @@ head>
                         <div class="dashboard-card" data-module="about" onclick="openAboutModal()"
                             style="border-color: #34495e;">
                             <div class="icon-circle" style="overflow:hidden; background: #f0f2f5;">
-                                <img src="https://raw.githubusercontent.com/sohaibchekr/ETIQ-CHS/main/sohaib.jpeg"
+                                <img src="https://raw.githubusercontent.com/RiccoForge/GestLab/main/sohaib.jpeg"
                                     onerror="this.src='https://ui-avatars.com/api/?name=Sohaib+Chekri&background=34495e&color=fff'"
                                     style="width:100%; height:100%; object-fit:cover;">
                             </div>
@@ -3148,12 +3148,12 @@ head>
                 <div
                     style="font-size: 0.8rem; color: #e74c3c; border: 1px dashed #e74c3c; padding: 10px; border-radius: 8px;">
                     <p style="margin:0 0 5px 0; font-weight:bold;">Changer de projet Firebase (Secours) :</p>
-                    <button class="btn-mini" onclick="switchFirebaseProject('etiq-chs')"
+                    <button class="btn-mini" onclick="switchFirebaseProject('GestLab')"
                         style="background:#3498db; color:white;">Default</button>
                     <button class="btn-mini" onclick="switchFirebaseProject('biocare-biotech')"
                         style="background:#9b59b6; color:white;">BioCare</button>
-                    <button class="btn-mini" onclick="switchFirebaseProject('mon-app-9ea26')"
-                        style="background:#27ae60; color:white;">Mon-App</button>
+                    <button class="btn-mini" onclick="switchFirebaseProject('GestLab')"
+                        style="background:#27ae60; color:white;">GestLab</button>
                 </div>
             </div>
         </div>
@@ -4195,7 +4195,7 @@ head>
             <div style="overflow-y: auto; overflow-x: hidden; padding-right: 10px;">
                 <div
                     style="width:110px; height:110px; border-radius:50%; margin:0 auto 15px auto; border:4px solid white; box-shadow:0 10px 25px rgba(0,0,0,0.15); overflow:hidden; background:#f0f2f5; display:flex; align-items:center; justify-content:center; flex-shrink: 0;">
-                    <img src="https://raw.githubusercontent.com/sohaibchekr/ETIQ-CHS/main/sohaib.jpeg" alt="Sohaib Chekri"
+                    <img src="https://raw.githubusercontent.com/RiccoForge/GestLab/main/sohaib.jpeg" alt="Sohaib Chekri"
                         onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Sohaib+Chekri&background=3074c7&color=fff&size=200'"
                         style="width:100%; height:100%; object-fit:cover;">
                 </div>
@@ -4222,7 +4222,7 @@ head>
                         </li>
                         <li style="display: flex; align-items: flex-start; gap: 8px;">
                             <span style="color: #3074c7; font-size: 1rem; line-height: 1.2;">•</span>
-                            <div style="flex: 1;"><strong>Étiq-CHS</strong> : système de génération d’étiquettes et de gestion des données (Access + VBA) <span style="display: inline-block; background: #e2e8f0; color: #4a5568; padding: 2px 6px; border-radius: 6px; font-size: 0.7rem; font-weight: 700; margin-left: 5px; white-space: nowrap;">2023-2025</span></div>
+                            <div style="flex: 1;"><strong>GestLab</strong> : système de génération d’étiquettes et de gestion des données (Access + VBA) <span style="display: inline-block; background: #e2e8f0; color: #4a5568; padding: 2px 6px; border-radius: 6px; font-size: 0.7rem; font-weight: 700; margin-left: 5px; white-space: nowrap;">2023-2025</span></div>
                         </li>
                         <li style="display: flex; align-items: flex-start; gap: 8px;">
                             <span style="color: #3074c7; font-size: 1rem; line-height: 1.2;">•</span>
@@ -4716,9 +4716,7 @@ const app = initializeApp(firebaseConfig);
 
         window.switchFirebaseProject = function (pid) {
             const configs = {
-                'etiq-chs': { apiKey: "AIzaSyAGegoUv1mwcxCtmssP2MBT_3RRIIWyYtA", authDomain: "etiq-chs.firebaseapp.com", projectId: "etiq-chs", storageBucket: "etiq-chs.firebasestorage.app", appId: "1:430451080731:web:3d8ee352bb6708f03782be" },
-                'biocare-biotech': { apiKey: "AIzaSyBSSVxLYLN2hx0hNCkbYwfGl--H8UZFnCw", authDomain: "biocare-biotech.firebaseapp.com", projectId: "biocare-biotech", storageBucket: "biocare-biotech.firebasestorage.app", appId: "1:136143925673:web:8c2b51a2bdbee662e594b8" },
-                'mon-app-9ea26': { apiKey: "AIzaSyC3TxNxKsvXI-cGTUep1gh5EY6mgdA8NWE", authDomain: "mon-app-9ea26.firebaseapp.com", projectId: "mon-app-9ea26", storageBucket: "mon-app-9ea26.firebasestorage.app", appId: "1:894578123456:web:abcd123456789" }
+                'GestLab': { apiKey: "AIzaSyDYoDu_hBvEJvGdiF4KEiwc_738Uh-p8lc", authDomain: "gestlab-e24a1.firebaseapp.com", projectId: "gestlab-e24a1", storageBucket: "gestlab-e24a1.firebasestorage.app", appId: "1:175676052151:web:70fcd77274ce04eacbf332" },
             };
             if (confirm(`Voulez-vous basculer sur le projet ${pid} ? L'application va redémarrer.`)) {
                 localStorage.setItem('tempFirebaseConfig', JSON.stringify(configs[pid]));
