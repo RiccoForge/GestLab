@@ -4323,19 +4323,23 @@ head>
         import { getFirestore, collection, addDoc, getDocs, onSnapshot, query, orderBy, where, deleteDoc, doc, updateDoc, setDoc, getDoc, limit } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
         import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
-        // Firebase configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyAGegoUv1mwcxCtmssP2MBT_3RRIIWyYtA",
-            authDomain: "etiq-chs.firebaseapp.com",
-            projectId: "etiq-chs",
-            storageBucket: "etiq-chs.firebasestorage.app",
-            messagingSenderId: "430451080731",
-            appId: "1:430451080731:web:3d8ee352bb6708f03782be",
-            measurementId: "G-1DCTQ2GJ46"
-        };
+        // Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyDYoDu_hBvEJvGdiF4KEiwc_738Uh-p8lc",
+  authDomain: "gestlab-e24a1.firebaseapp.com",
+  projectId: "gestlab-e24a1",
+  storageBucket: "gestlab-e24a1.firebasestorage.app",
+  messagingSenderId: "175676052151",
+  appId: "1:175676052151:web:70fcd77274ce04eacbf332"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
         const auth = getAuth(app);
 
