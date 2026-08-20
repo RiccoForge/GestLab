@@ -2085,7 +2085,7 @@ head>
                     <input type="text" id="regPrenom" placeholder="Prénom">
                 </div>
 
-                <input type="email" id="authEmail" placeholder="Email (ex: sohaibchekri@gmail.com)">
+                <input type="email" id="authEmail" placeholder="Email (ex: houssemfarhi92@gmail.com)">
                 <div style="position: relative; margin-top: 10px;">
                     <input type="password" id="authPass" placeholder="Mot de passe"
                         style="width: 100%; padding-right: 45px;">
@@ -5177,7 +5177,7 @@ const app = initializeApp(firebaseConfig);
 
         // Initialisation de l'application
         async function initApp() {
-            const adminEmail = 'sohaibchekri@gmail.com';
+            const adminEmail = 'houssemfarhi92@gmail.com';
             try {
                 const userDoc = await getDoc(doc(db, "users", adminEmail));
                 if (!userDoc.exists() || userDoc.data().status !== 'approved' || userDoc.data().role !== 'admin') {
@@ -5280,7 +5280,7 @@ const app = initializeApp(firebaseConfig);
                                 <button class="btn-modern" onclick="approveUser('${user.email}')" style="background:#2ecc71; color:white; padding:8px 15px; font-size:0.75rem; border-radius:8px;">Approuver</button>
                             ` : ''}
                             <button class="btn-modern" onclick="editUser('${user.email}')" style="background: #3498db; color: white; padding: 8px 12px; font-size: 0.75rem; border-radius:8px;">Modifier</button>
-                            ${(!isAdmin && user.email !== 'sohaibchekri@gmail.com') ? `
+                            ${(!isAdmin && user.email !== 'houssemfarhi92@gmail.com') ? `
                                 <button class="btn-modern" onclick="deleteUser('${user.email}')" style="background:#e74c3c; color:white; padding:8px 12px; font-size: 0.75rem; border-radius:8px;">Supprimer</button>
                             ` : ''}
                         </div>
@@ -9354,7 +9354,7 @@ const app = initializeApp(firebaseConfig);
 
                     await createUserWithEmailAndPassword(auth, normalizedEmail, pass);
 
-                    const adminEmail = 'sohaibchekri@gmail.com';
+                    const adminEmail = 'houssemfarhi92@gmail.com';
                     const isSystemAdmin = (normalizedEmail === adminEmail);
 
                     await setDoc(userRef, {
@@ -9614,7 +9614,7 @@ const app = initializeApp(firebaseConfig);
                 const normalizedEmail = user.email.toLowerCase();
                 let userDoc = await getDoc(doc(db, "users", normalizedEmail));
                 if (!userDoc.exists()) {
-                    const adminEmail = 'sohaibchekri@gmail.com';
+                    const adminEmail = 'houssemfarhi92@gmail.com';
                     const isSystemAdmin = (normalizedEmail === adminEmail);
                     await setDoc(doc(db, "users", normalizedEmail), {
                         email: normalizedEmail,
