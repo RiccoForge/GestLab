@@ -5236,7 +5236,7 @@ const firebaseConfig = {
 
             sortedUsers.forEach(user => {
                 const tr = document.createElement('tr');
-                const photoSrc = user.photo || ' https://placehold.co/80?text=👤';
+                const photoSrc = user.photo || 'https://picsum.photos/80?text=👤';
                 const fullName = `${user.nom || ''} ${user.prenom || ''}`.trim() || user.email;
                 const isAdmin = user.role === 'admin';
                 const isPending = user.status === 'pending';
@@ -5252,7 +5252,7 @@ const firebaseConfig = {
                 tr.innerHTML = `
                     <td>
                         <div class="member-info-cell">
-                            <img src="${photoSrc}" class="member-photo" style="width:50px; height:50px;" onerror="this.src=' https://placehold.co/50?text=👤'">
+                            <img src="${photoSrc}" class="member-photo" style="width:50px; height:50px;" onerror="this.src='https://picsum.photos/50?text=👤'">
                             <div>
                                 <div style="font-weight:700; color:#2d3748;">${fullName}</div>
                                 <div style="font-size:0.75rem; color:#718096;">${user.email}</div>
