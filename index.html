@@ -9983,14 +9983,14 @@ const firebaseConfig = {
 
         function autoFillSoucheCode(name) {
             const mappings = {
-                'E.coli': 'LSRESC004',
-                'B.subtilis': 'LSRBAS004',
-                'A.brasiliensis': 'LSRASB004',
-                'S.aureus': 'LSRSTA004',
-                'C.albicans': 'LSRCAA004',
-                'C.sporogenes': 'LSRCLS004',
-                'P.aeruginosa': 'LSRPSA004',
-                'S.typhimurium': 'LSRSAT004'
+                'E.coli': 'LSREC004',
+                'B.subtilis': 'LSRBS004',
+                'A.brasiliensis': 'LSRAB004',
+                'S.aureus': 'LSRSA004',
+                'C.albicans': 'LSRCA004',
+                'C.sporogenes': 'LSRCS004',
+                'P.aeruginosa': 'LSRPA004',
+                'S.typhimurium': 'LSRST004'
             };
 
             if (mappings[name]) {
@@ -10061,7 +10061,7 @@ const firebaseConfig = {
 
                 // Imprimer les 6 étiquettes si demandé
                 if (doPrint) {
-                    printSoucheLabelsDirect(name, code, cryo);
+                    printSoucheLabelsDirect(name, code, cryo, expDate, currentUser));
                 }
 
                 // Reset form fields but keep designation/code for next cryo serial if needed
@@ -10075,7 +10075,7 @@ const firebaseConfig = {
             }
         }
 
-        function printSoucheLabelsDirect(name, code, cryo) {
+        function printSoucheLabelsDirect(name, code, cryo, expDate, currentUser) {
             const printArea = document.getElementById('print-area');
             if (!printArea) return;
             printArea.innerHTML = '';
@@ -10089,13 +10089,14 @@ const firebaseConfig = {
             printArea.appendChild(container);
 
             const pad = (n) => n.toString().padStart(2, '0');
+            const formattedExp = expDate ? new Date(expDate).toLocaleDateString('fr-FR') : '';
 
             for (let i = 1; i <= 6; i++) {
                 const wrapper = document.createElement('div');
                 wrapper.className = 'label-wrapper';
                 // Style boîte simple comme sur la capture
                 wrapper.style.cssText = `
-                    width: 70mm; height: 18mm; border: 1px solid black; 
+                    width: 70mm; height: 35mm; border: 1px solid black; 
                     display: flex; justify-content: center; align-items: center; 
                     text-align: center; font-family: 'Consolas', 'Monaco', monospace;
                     font-size: 14pt; font-weight: bold; background: white;
@@ -10105,7 +10106,11 @@ const firebaseConfig = {
                 // Format exact: CODE-xx01
                 const cryoStr = pad(cryo);
                 const tubeStr = pad(i);
-                wrapper.innerText = `${code}-${cryoStr}${tubeStr}`;
+                wrapper.innerText = `
+                <div style="font-size: 13pt;">${code}-${cryoStr}${tubeStr}</div>
+                    <div style="font-size: 9pt; font-weight: normal;">Exp: ${formattedExp}</div>
+                    <div style="font-size: 8pt; font-weight: normal;">Prep: ${preparator}</div>
+                `;
 
                 container.appendChild(wrapper);
             }
@@ -10974,7 +10979,7 @@ const firebaseConfig = {
 
             const lostData = [
                 {
-                    name: "A.brasiliensis", code: "LSRASB004", cryos: [
+                    name: "A.brasiliensis", code: "LSRAB004", cryos: [
                         { n: 1, r: "2025-08-31", e: "2025-10-12" },
                         { n: 2, r: "2025-10-14", e: "2025-11-25" },
                         { n: 3, r: "2025-11-25", e: "2026-01-06" },
@@ -10983,7 +10988,7 @@ const firebaseConfig = {
                     ]
                 },
                 {
-                    name: "E.coli", code: "LSRESC004", cryos: [
+                    name: "E.coli", code: "LSREC004", cryos: [
                         { n: 1, r: "2025-10-28", e: "2025-12-09" },
                         { n: 2, r: "2025-12-09", e: "2026-01-20" },
                         { n: 3, r: "2026-01-20", e: "2026-03-03" },
@@ -10991,7 +10996,7 @@ const firebaseConfig = {
                     ]
                 },
                 {
-                    name: "B.subtilis", code: "LSRBAS004", cryos: [
+                    name: "B.subtilis", code: "LSRBS004", cryos: [
                         { n: 1, r: "2025-09-29", e: "2025-10-10" },
                         { n: 2, r: "2025-10-10", e: "2025-12-22" },
                         { n: 3, r: "2025-12-24", e: "2026-02-04" },
@@ -11000,7 +11005,7 @@ const firebaseConfig = {
                     ]
                 },
                 {
-                    name: "S.typhimurium", code: "LSRSAT004", cryos: [
+                    name: "S.typhimurium", code: "LSRST004", cryos: [
                         { n: 1, r: "2025-09-29", e: "2025-11-10" },
                         { n: 2, r: "2025-11-10", e: "2025-12-22" },
                         { n: 3, r: "2025-12-24", e: "2026-02-04" },
@@ -11009,7 +11014,7 @@ const firebaseConfig = {
                     ]
                 },
                 {
-                    name: "P.aeruginosa", code: "LSRPSA004", cryos: [
+                    name: "P.aeruginosa", code: "LSRPA004", cryos: [
                         { n: 1, r: "2025-09-29", e: "2025-11-10" },
                         { n: 2, r: "2025-11-10", e: "2025-12-22" },
                         { n: 3, r: "2025-12-24", e: "2026-02-04" },
@@ -11018,7 +11023,7 @@ const firebaseConfig = {
                     ]
                 },
                 {
-                    name: "C.sporogenes", code: "LSRCLS004", cryos: [
+                    name: "C.sporogenes", code: "LSRCS004", cryos: [
                         { n: 1, r: "2025-09-03", e: "2025-10-15" },
                         { n: 2, r: "2025-09-27", e: "2025-11-08" },
                         { n: 3, r: "2025-11-10", e: "2025-12-22" },
@@ -11028,7 +11033,7 @@ const firebaseConfig = {
                     ]
                 },
                 {
-                    name: "C.albicans", code: "LSRCAA004", cryos: [
+                    name: "C.albicans", code: "LSRCA004", cryos: [
                         { n: 1, r: "2025-08-31", e: "2025-10-12" },
                         { n: 2, r: "2025-10-14", e: "2025-11-25" },
                         { n: 3, r: "2025-11-25", e: "2026-01-06" },
@@ -11037,7 +11042,7 @@ const firebaseConfig = {
                     ]
                 },
                 {
-                    name: "S.aureus", code: "LSRSTA004", cryos: [
+                    name: "S.aureus", code: "LSRSA004", cryos: [
                         { n: 1, r: "2025-08-26", e: "2025-10-07" },
                         { n: 2, r: "2025-10-07", e: "2025-11-18" },
                         { n: 3, r: "2025-11-24", e: "2026-01-05" },
