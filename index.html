@@ -10090,6 +10090,7 @@ const firebaseConfig = {
 
             const pad = (n) => n.toString().padStart(2, '0');
             const formattedExp = expDate ? new Date(expDate).toLocaleDateString('fr-FR') : '';
+            const preparator = currentUser ? (currentUser.prenom + ' ' + currentUser.nom) : 'Labo'
 
             for (let i = 1; i <= 6; i++) {
                 const wrapper = document.createElement('div');
