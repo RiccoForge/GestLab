@@ -10061,7 +10061,7 @@ const firebaseConfig = {
 
                 // Imprimer les 6 étiquettes si demandé
                 if (doPrint) {
-                    printSoucheLabelsDirect(name, code, cryo);
+                    printSoucheLabelsDirect(name, code, cryo, expDate, preparator);
                 }
 
                 // Reset form fields but keep designation/code for next cryo serial if needed
@@ -10106,6 +10106,7 @@ const firebaseConfig = {
                 const cryoStr = pad(cryo);
                 const tubeStr = pad(i);
                 wrapper.innerText = `${code}-${cryoStr}${tubeStr}`;
+                expDate - preparator
 
                 container.appendChild(wrapper);
             }
