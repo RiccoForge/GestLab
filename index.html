@@ -10075,7 +10075,7 @@ const firebaseConfig = {
             }
         }
 
-       function printSoucheLabelsDirect(name, code, cryo, expDate, preparator) {
+function printSoucheLabelsDirect(name, code, cryo, expDate, preparator) {
     const printArea = document.getElementById('print-area');
     if (!printArea) return;
     printArea.innerHTML = '';
@@ -10093,7 +10093,7 @@ const firebaseConfig = {
     for (let i = 1; i <= 6; i++) {
         const wrapper = document.createElement('div');
         wrapper.className = 'label-wrapper';
-        // Style boîte simple comme sur la capture
+        
         wrapper.style.cssText = `
             width: 70mm; height: 18mm; border: 1px solid black; 
             display: flex; justify-content: center; align-items: center; 
@@ -10102,11 +10102,10 @@ const firebaseConfig = {
             margin-bottom: 5mm;
         `;
 
-        // Format exact: CODE-xx01
+        // Format exact: CODE-xx01 using backticks (`) for multiline string interpolation
         const cryoStr = pad(cryo);
         const tubeStr = pad(i);
-        wrapper.innerText = `${code}-${cryoStr}${tubeStr}
-                            ${expDate} - ${preparator}`;
+        wrapper.innerText = `${code}-${cryoStr}${tubeStr}\n${expDate} -${preparator}`;
 
         container.appendChild(wrapper);
     }
