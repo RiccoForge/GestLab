@@ -10102,10 +10102,10 @@ const firebaseConfig = {
                     margin-bottom: 5mm;
                 `;
 
-                // Format exact: CODE/CRYxx/Tu01
+                // Format exact: CODE-xx01
                 const cryoStr = pad(cryo);
                 const tubeStr = pad(i);
-                wrapper.innerText = `${code}/CRY${cryoStr}/Tu${tubeStr}`;
+                wrapper.innerText = `${code}-${cryoStr}${tubeStr}`;
 
                 container.appendChild(wrapper);
             }
