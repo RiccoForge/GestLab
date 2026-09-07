@@ -10075,41 +10075,42 @@ const firebaseConfig = {
             }
         }
 
-        function printSoucheLabelsDirect(name, code, cryo) {
-            const printArea = document.getElementById('print-area');
-            if (!printArea) return;
-            printArea.innerHTML = '';
+       function printSoucheLabelsDirect(name, code, cryo, expDate, preparator) {
+    const printArea = document.getElementById('print-area');
+    if (!printArea) return;
+    printArea.innerHTML = '';
 
-            // Container pour mettre plusieurs étiquettes sur la même page
-            const container = document.createElement('div');
-            container.style.cssText = `
-                display: flex; flex-wrap: wrap; gap: 10mm; padding: 10mm;
-                justify-content: flex-start; align-content: flex-start;
-            `;
-            printArea.appendChild(container);
+    // Container pour mettre plusieurs étiquettes sur la même page
+    const container = document.createElement('div');
+    container.style.cssText = `
+        display: flex; flex-wrap: wrap; gap: 10mm; padding: 10mm;
+        justify-content: flex-start; align-content: flex-start;
+    `;
+    printArea.appendChild(container);
 
-            const pad = (n) => n.toString().padStart(2, '0');
+    const pad = (n) => n.toString().padStart(2, '0');
 
-            for (let i = 1; i <= 6; i++) {
-                const wrapper = document.createElement('div');
-                wrapper.className = 'label-wrapper';
-                // Style boîte simple comme sur la capture
-                wrapper.style.cssText = `
-                    width: 70mm; height: 18mm; border: 1px solid black; 
-                    display: flex; justify-content: center; align-items: center; 
-                    text-align: center; font-family: 'Consolas', 'Monaco', monospace;
-                    font-size: 14pt; font-weight: bold; background: white;
-                    margin-bottom: 5mm;
-                `;
+    for (let i = 1; i <= 6; i++) {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'label-wrapper';
+        // Style boîte simple comme sur la capture
+        wrapper.style.cssText = `
+            width: 70mm; height: 18mm; border: 1px solid black; 
+            display: flex; justify-content: center; align-items: center; 
+            text-align: center; font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 14pt; font-weight: bold; background: white;
+            margin-bottom: 5mm;
+        `;
 
-                // Format exact: CODE-xx01
-                const cryoStr = pad(cryo);
-                const tubeStr = pad(i);
-                wrapper.innerText = `${code}-${cryoStr}${tubeStr}
-                                    ${expDate} - ${preparator}`;
+        // Format exact: CODE-xx01
+        const cryoStr = pad(cryo);
+        const tubeStr = pad(i);
+        wrapper.innerText = `${code}-${cryoStr}${tubeStr}
+                            ${expDate} - ${preparator}`;
 
-                container.appendChild(wrapper);
-            }
+        container.appendChild(wrapper);
+    }
+}
 
             window.print();
             setTimeout(() => { printArea.innerHTML = ''; }, 1000);
